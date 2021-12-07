@@ -3,13 +3,15 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
 
+function createNote(noteInfo) {
+  return (<Note key={noteInfo.key} title={noteInfo.title} content={noteInfo.content} />);
+}
+
 function App(props) {
   return (
     <div>
       <Header />
-      {props.notes.map((note) => {
-        return (<Note key={note.key} title={note.title} content={note.content} />);
-      })}
+      {props.notes.map(createNote)}
       <Footer />
     </div>
   );
